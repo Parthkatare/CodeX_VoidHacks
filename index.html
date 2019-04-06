@@ -1,32 +1,45 @@
 <html>
 <head>
-  <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <title>Firebase Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="style1.css" />
+
 </head>
-<body background="images/bg.png" style="background-repeat: no-repeat;
-  background-attachment: fixed;">
-  <h1>NAME OF APP</h1>
-  <div>
-    <div class="wrapper">
-      <a href="#" class="btn-base btn-cta btn-1">
-        <span>CALL LOGS</span>
-      </a>
-      <a href="messages.html" class="btn-base btn-cta btn-2">
-        <span>MESSAGES</span>
-      </a>
-      <a href="#" class="btn-base btn-cta btn-3">
-        <span>SHARE SCREEN</span>
-      </a>
-      <a href="#" class="btn-base btn-cta btn-4">
-        <span>CLIPBOARD</span>
-      </a>
-      <a href="camera.htm" class="btn-base btn-cta btn-5">
-        <span>CAMERA</span>
-      </a>
-      <a href="files.html" class="btn-base btn-cta btn-6">
-        <span>FILE EXPLORER</span>
-      </a>
-    </div>
-</div>
+<body>
+
+  <div id="login_div" class="main-div">
+
+    <h3 align="center">Continuose Web login</h3>
+
+    <input type="email" placeholder="Email..." id="email_field" />
+    <input type="password" placeholder="Password..." id="password_field" />
+
+    <button onclick="login()">Login to Account</button>
+
+  </div>
+
+  <div id="user_div" class="loggedin-div">
+    <h3>Welcome User</h3>
+    <p id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>
+    <button onClick="parent.location='home.html'">Home</button><br>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script>
+   // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBRasjmDH8LhsylVDg12rW-urdaATpCXHQ",
+    authDomain: "continuosefinal.firebaseapp.com",
+    databaseURL: "https://continuosefinal.firebaseio.com",
+    projectId: "continuosefinal",
+    storageBucket: "continuosefinal.appspot.com",
+    messagingSenderId: "269820572080"
+  };
+  firebase.initializeApp(config);
+  </script>
+  <script src="js/index.js"></script>
+
 </body>
 </html>
