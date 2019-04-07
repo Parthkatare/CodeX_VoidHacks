@@ -1,37 +1,27 @@
-window.alert("welcome");
+window.alert("welcome To continuable Workspace");
 var database = firebase.database();
 var preData =document.getElementById("Content");
+var uemail="p,katare98@gmail,com";
 
-var preDataRef= database.ref('/users/'+'parth').child('data');
+var preDataRef= database.ref(uemail ).child('text');
 
-  preDataRef.once('value').then(function(snap){
-  document.getElementById("Content").innerText=snap.val();
+  preDataRef.on('value',function(snap){
+  document.getElementById("Content").innerHTML=snap.val();
   x=snap.val();
   });
 
 // setInterval("myfunction();",1000);
 document.getElementById("Content").innerHTML=x;
-moveCursorToEnd(document.getElementById("Content"));
+// moveCursorToEnd(document.getElementById("Content"));
 
 function myfunction() {
 
 var x = document.getElementById("Content").innerHTML;
-document.getElementById("demo").innerHTML=x;
+// document.getElementById("demo").innerHTML=x;
 
-writeUserData('parth', x);
+writeUserData(uemail, x);
 }
 
 // write functions
-function writeUserData(userId, x) {
-  firebase.database().ref('users/' + userId+'/data').set( x );}
-
-  function moveCursorToEnd(el) {
-    if (typeof el.selectionStart == "number") {
-        el.selectionStart = el.selectionEnd = el.value.length;
-    } else if (typeof el.createTextRange != "undefined") {
-        el.focus();
-        var range = el.createTextRange();
-        range.collapse(false);
-        range.select();
-    }
-}
+function writeUserData(uemail, x) {
+  firebase.database().ref(uemail+'/text').set( x );}
